@@ -30,20 +30,32 @@ public class Triangle{
   }
 
   public double getPerimeter(){
-    this.getSideLengths();
+    getSideLengths();
     return s1 + s2 + s3;
   }
 
   public double getArea(){
-    double s = this.getPerimeter()/2;
+    double s = getPerimeter()/2;
     return Math.sqrt(s * (s - s1) * (s - s2) * (s - s3));
   }
 
   public String classify(){
-    this.getRoundedSideLengths();
+    getRoundedSideLengths();
     if (s1 == s2 && s1 == s3) return "equilateral";
     if (s1 == s2 || s1 == s3 || s2 == s3) return "isosceles";
     return "scalene";
+  }
+
+  //toString method override
+  public String toString(){
+    return "v1(" + v1.getX() + ", " + v1.getY() + ") v2(" + v2.getX() + ", " + v2.getY() + ") v3(" + v3.getX() + ", " + v3.getY() + ")";
+  }
+
+  //mutator
+  public void setVertex(int index, Point newP){
+    if (index == 0) v1 = newP;
+    else if (index == 1) v2 = newP;
+    else if (index == 2) v3 = newP;
   }
 
 }

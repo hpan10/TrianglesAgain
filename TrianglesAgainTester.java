@@ -39,22 +39,35 @@ public class TrianglesAgainTester{
 
     //Tests getPerimeter
     System.out.println("Testing getPerimeter");
-    System.out.println(a.getPerimeter()); //Should return 12.0
-    System.out.println(b.getPerimeter()); //Should return 30.0
+    System.out.println(a.getPerimeter()); //Should print 12.0
+    System.out.println(b.getPerimeter()); //Should print 30.0
     System.out.println("--------------------");
 
     //Tests getArea
     System.out.println("Testing getArea");
-    System.out.println(a.getArea()); //Should return 6.0
-    System.out.println(b.getArea()); //Should return 30.0
+    System.out.println(a.getArea()); //Should print 6.0
+    System.out.println(b.getArea()); //Should print 30.0
     System.out.println("---------------");
 
     //Tests classify
     System.out.println("Testing classify");
-    System.out.println(a.classify()); //Should return scalene
-    System.out.println(c.classify()); //Should return isosceles
-    System.out.println(d.classify()); //Should return equilateral
+    System.out.println(a.classify()); //Should print scalene
+    System.out.println(c.classify()); //Should print isosceles
+    System.out.println(d.classify()); //Should print equilateral
+    System.out.println("----------------");
 
+    //Tests toString
+    System.out.println("Testing toString");
+    System.out.println(a); //Should print "v1(0.0, 0.0) v2(3.0, 0.0) v3(3.0, 4.0)"
+    System.out.println(c); //Should print "v1(0.0, 0.0) v2(8.0, 0.0) v3(4.0, 12.0)"
+    System.out.println(d); //Should print "v1(2.0, 1.0) v2(7.0, 1.0) v3(4.5, 5.33012701892)"
+    System.out.println("----------------");
+
+    //Tests setVertex
+    c.setVertex(2, new Point(4,3));
+    System.out.println(c.classify()); //Should print isosceles
+    System.out.println(c.getArea());  //Should print 12.0
+    System.out.println(c.getPerimeter()); //Should print 18.0
 
   }
 
