@@ -16,16 +16,34 @@ public class Triangle{
   }
 
   //Triangle methods
-  //Helper function to get side lengths
+  //Helper functions to get side lengths
   public void getSideLengths(){
     s1 = v1.distanceTo(v2);
     s2 = v2.distanceTo(v3);
     s3 = v3.distanceTo(v1);
   }
 
+  public void getRoundedSideLengths(){
+    s1 = (double) Math.round(v1.distanceTo(v2) * 10000) / 10000;
+    s2 = (double) Math.round(v2.distanceTo(v3) * 10000) / 10000;
+    s3 = (double) Math.round(v3.distanceTo(v1) * 10000) / 10000;
+  }
+
   public double getPerimeter(){
     this.getSideLengths();
     return s1 + s2 + s3;
+  }
+
+  public double getArea(){
+    double s = this.getPerimeter()/2;
+    return Math.sqrt(s * (s - s1) * (s - s2) * (s - s3));
+  }
+
+  public String classify(){
+    this.getRoundedSideLengths();
+    if (s1 == s2 && s1 == s3) return "equilateral";
+    if (s1 == s2 || s1 == s3 || s2 == s3) return "isosceles";
+    return "scalene";
   }
 
 }
